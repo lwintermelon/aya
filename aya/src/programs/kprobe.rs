@@ -8,7 +8,7 @@ use crate::{
     programs::{
         load_program,
         probe::{attach, ProbeKind},
-        LinkRef, ProgramData, ProgramError,
+            LinkRef, ProgramData, ProgramError,
     },
 };
 
