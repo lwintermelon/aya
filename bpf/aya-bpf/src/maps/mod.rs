@@ -4,6 +4,7 @@ pub mod perf_map;
 pub mod queue;
 pub mod sock_hash;
 pub mod sock_map;
+pub mod ring_buf;
 
 pub use array::Array;
 pub use hash_map::HashMap;
@@ -11,3 +12,4 @@ pub use perf_map::PerfMap;
 pub use queue::Queue;
 pub use sock_hash::SockHash;
 pub use sock_map::SockMap;
+pub use ring_buf::RingBuf;

@@ -55,6 +55,7 @@ pub mod queue;
 pub mod sock;
 pub mod stack;
 pub mod stack_trace;
+pub mod ringbuf;
 
 pub use array::{Array, PerCpuArray, ProgramArray};
 pub use hash_map::{HashMap, PerCpuHashMap};
