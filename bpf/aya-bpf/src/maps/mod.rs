@@ -13,6 +13,7 @@ pub mod queue;
 pub mod sock_hash;
 pub mod sock_map;
 pub mod stack_trace;
+pub mod ring_buf;
 
 pub use array::Array;
 pub use hash_map::HashMap;
@@ -22,3 +23,4 @@ pub use queue::Queue;
 pub use sock_hash::SockHash;
 pub use sock_map::SockMap;
 pub use stack_trace::StackTrace;
+pub use ring_buf::RingBuf;

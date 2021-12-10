@@ -11,7 +11,7 @@ use thiserror::Error;
 
 use crate::{
     generated::{
-        bpf_map_type::BPF_MAP_TYPE_PERF_EVENT_ARRAY, AYA_PERF_EVENT_IOC_DISABLE,
+        self, bpf_map_type::BPF_MAP_TYPE_PERF_EVENT_ARRAY, AYA_PERF_EVENT_IOC_DISABLE,
         AYA_PERF_EVENT_IOC_ENABLE, AYA_PERF_EVENT_IOC_SET_BPF,
     },
     maps::{Map, MapError, MapLock, MapRef, MapRefMut},
@@ -190,7 +190,6 @@ impl<'a> BpfLoader<'a> {
         if let Some(btf) = &self.btf {
             obj.relocate_btf(btf)?;
         }
-
         let mut maps = Vec::new();
         for (_, mut obj) in obj.maps.drain() {
             if obj.def.map_type == BPF_MAP_TYPE_PERF_EVENT_ARRAY as u32 && obj.def.max_entries == 0
@@ -236,6 +235,9 @@ impl<'a> BpfLoader<'a> {
                         io_error,
                     },
                 )?;
+            }
+            if map.obj.def.map_type == generated::bpf_map_type::BPF_MAP_TYPE_RINGBUF as u32 {
+                dbg!(&map);
             }
             maps.push(map);
         }
